@@ -30,6 +30,8 @@ Complexity of Healthcare Data: Patient data is often heterogeneous, involving st
 
 - Model Accuracy: 80% has been set as the baseline for a successful model.
 
+- Compliance with Regulations: Ensure that all data handling and processing activities meet legal and ethical standards, with no breaches of patient confidentiality or privacy.
+
 ## Proposed Solutions
 - Data Collection and Preprocessing: Gather comprehensive patient data from the web. The MIMIC-IV dataset has been identified as a viable candidate.
 
@@ -41,13 +43,9 @@ Complexity of Healthcare Data: Patient data is often heterogeneous, involving st
 Provide training sessions for healthcare professionals and administrators on how to interpret and act on the model’s predictions, ensuring effective implementation.
 Success Metrics:
 
-## Prediction Accuracy
+## Post-Project Action Plan
 - Measure the accuracy of the model’s predictions in terms of patient outcomes (e.g., recovery time, complications) and resource needs (e.g., staff hours, bed occupancy).
 
-- Resource Utilization Efficiency: Evaluate the efficiency of resource allocation by comparing resource usage before and after implementing the CPORP Model, with a focus on reducing waste and shortages.
-
-- Patient Outcome Improvement: Track key patient outcome indicators, such as complication rates, recovery times, and patient satisfaction, to assess the impact of the model on patient care.
-
-- Compliance with Regulations: Ensure that all data handling and processing activities meet legal and ethical standards, with no breaches of patient confidentiality or privacy.
-
 - User Adoption and Satisfaction: Gather feedback from healthcare professionals and administrators on the usability and effectiveness of the CPORP Model, aiming for high levels of adoption and satisfaction.
+
+- Resource Utilization Efficiency: Evaluate the efficiency of resource allocation by comparing resource usage before and after implementing the CPORP Model, with a focus on reducing waste and shortages.
