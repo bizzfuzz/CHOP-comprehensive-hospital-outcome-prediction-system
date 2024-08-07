@@ -1,6 +1,4 @@
-**PROPOSAL: Predictive Health Risk Analysis Using Facial Recognition**
-
----
+# Predictive Health Risk Analysis System Engine (PHRASE)
 
 **PITCH**
 

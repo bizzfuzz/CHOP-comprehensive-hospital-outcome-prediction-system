@@ -1,5 +1,5 @@
 
-# Comprehensive Hospital Outcome Prediction System
+# Comprehensive Hospital Outcome Prediction System (CHOP)
 
 **PITCH**
 
