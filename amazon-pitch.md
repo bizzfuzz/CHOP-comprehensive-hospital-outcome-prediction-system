@@ -24,7 +24,7 @@ This project involves analyzing a dataset of Amazon reviews sourced from hugging
 
 ## Success Metrics
 1. **Model Accuracy**: A model accuracy of 80% or higher is required.
-2. **Functional Storefront**: A webapp for a test store is developed and deployed.
+2. **Functional Storefront**: A basic storefront webapp is developed and deployed.
 3. **Model Intergration**: The model is able to interact with the store to analyze reviews.
 
 ## Proposed Solutions
