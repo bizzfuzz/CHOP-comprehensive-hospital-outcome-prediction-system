@@ -7,6 +7,35 @@ The healthcare industry faces significant challenges in predicting patient outco
 ## Project Overview
 The Comprehensive Patient Outcome and Resource Prediction (CPORP) Model aims to leverage machine learning techniques to predict patient outcomes and optimize resource allocation in healthcare settings. By analyzing patient data, including demographic, clinical, and treatment information, the model will provide hospitals with accurate predictions regarding patient recovery, potential complications, and the necessary resources to ensure optimal care. The CPORP Model will serve as a decision-support tool for healthcare administrators and medical professionals, helping them make informed decisions to improve patient outcomes and operational efficiency.
 
+## Data Understanding
+### Data Sources
+The data for this project is sourced from the MIMIC-IV Clinical Database, which provides comprehensive clinical information on patients admitted to intensive care units at the Beth Israel Deaconess Medical Center. The database contains de-identified patient data in compliance with HIPAA standards, making it a valuable resource for healthcare research.
+
+### Datasets Utilized
+For the Comprehensive Patient Outcome and Resource Prediction (CPORP) Model, we have selected specific datasets from the MIMIC-IV database. These datasets provide a rich set of features relevant to predicting patient outcomes and optimizing healthcare resource allocation. Below is a description of each dataset and its relevance to the project:
+
+#### Admissions.csv
+***Description:*** This dataset contains information about patient admissions, including admission and discharge times, admission type (e.g., emergency, elective), and hospital stay details.
+
+#### Patients.csv
+
+***Description:*** Includes demographic information such as patient identifiers, birth dates, gender, and death indicators.
+
+#### OMR.csv
+***(Output Measurement Records):*** Provides longitudinal patient data, including measurements such as height, weight, BMI, and blood pressure, recorded over time to track health trends and assess treatment effectiveness.
+
+#### Diagnoses_ICD.csv
+***Description:*** Lists International Classification of Diseases (ICD) diagnosis codes assigned to patients during their hospital stay.
+
+#### Services.csv
+***Description:*** Provides information about clinical services and procedures that patients received during their hospital stay, including billing-related data.
+
+#### Labevents.csv
+***Description:*** Contains laboratory test results for patients, including test identifiers, results, timestamps, and units of measurement.
+
+### Relevance of Data 
+The selected datasets collectively provide a holistic view of patient information, covering demographics, clinical diagnoses, lab results, and treatment services.
+
 ## Challenges
 - Data Availability and Quality: Obtaining comprehensive, high-quality patient data that covers a wide range of variables is essential. Incomplete or inaccurate data can lead to unreliable predictions.
 
