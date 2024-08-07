@@ -9,7 +9,8 @@ The Comprehensive Patient Outcome and Resource Prediction (CPORP) Model aims to 
 
 ## Challenges
 - Data Availability and Quality: Obtaining comprehensive, high-quality patient data that covers a wide range of variables is essential. Incomplete or inaccurate data can lead to unreliable predictions.
-Complexity of Healthcare Data: Patient data is often heterogeneous, involving structured and unstructured information, including medical records, lab results, and physician notes. Integrating and analyzing such diverse data sources is complex.
+
+- Complexity of Healthcare Data: Patient data is often heterogeneous, involving structured and unstructured information, including medical records, lab results, and physician notes.
 
 - Privacy and Security Concerns: Handling sensitive patient data requires strict adherence to privacy regulations such as HIPAA, making data collection, storage, and processing challenging.
 
