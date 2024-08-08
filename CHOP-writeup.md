@@ -13,13 +13,10 @@ This project aims to predict facets of a patient's admission such as length of s
 
 The CHOP Model aims to predict patient outcomes and optimize resource allocation in healthcare settings. By providing accurate predictions regarding patient stays, CHOP  will serve as a decision-support tool for healthcare administrators.
 
-**Challenges**
+**Problem Statement**
 
-- **Data Availability and Quality:** Obtaining comprehensive, high-quality patient data that covers a wide range of variables is essential.
-
-- **Complexity of Healthcare Data:** Medical data is complex. It includes medical records, lab results, and physician notes among others. Cleaning the data into a usable format will be a big undertaking.
-
-- **Privacy and Security Concerns:** Handling sensitive patient data requires strict adherence to privacy regulations.
+Hospitals struggle to accurately forecast patient recovery times, potential complications, and necessary resources such as staff and beds. This uncertainty can result in either ***over-preparation*** 
+(wasted resources), or **under-preparation**(poor service).
 
 **Proposed Solution**
 
@@ -27,18 +24,7 @@ Our solution is to develop a model that given patient information, can predict a
 
 The system will be able to monitor inpatient numbers to flag if available resources will meet demand in the near future. As an example, with projected number of patients in the coming days, if the system finds that staff on duty on a specific date falls short of demand, it will make this known to administrators.
 
-**Metrics of Success**
-
-1. **Model Accuracy**: Achieving high accuracy in predicting patient outcomes is imperative.
-3. **User Acceptance**: Positive feedback from hospital administration regarding the model's usability and insights.
-4. **Compliance and Security**: Adherence to ethical standards and data privacy regulations.
-
 ---
-
-**Problem Statement**
-
-Hospitals struggle to accurately forecast patient recovery times, potential complications, and necessary resources such as staff and beds. This uncertainty can result in either ***over-preparation*** 
-(wasted resources), or **under-preparation**(poor service).
 
 **Objectives**
 
@@ -56,6 +42,20 @@ Hospitals struggle to accurately forecast patient recovery times, potential comp
 
 - **Optimize Resource Allocation:** Use the model’s predictions to optimize the allocation of hospital resources, such as staff, equipment, and beds, ensuring they are used efficiently and effectively.
 
+**Metrics of Success**
+
+1. **Model Accuracy**: Achieving high accuracy in predicting patient outcomes is imperative.
+2. **Compliance and Security**: Adherence to ethical standards and data privacy regulations.
+3. **User Acceptance**: Positive feedback from hospital administration regarding the model's usability and insights.
+
+**Challenges**
+
+- **Data Availability and Quality:** Obtaining comprehensive, high-quality patient data that covers a wide range of variables is essential.
+
+- **Complexity of Healthcare Data:** Medical data is complex. It includes medical records, lab results, and physician notes among others. Cleaning the data into a usable format will be a big undertaking.
+
+- **Privacy and Security Concerns:** Handling sensitive patient data requires strict adherence to privacy regulations.
+
 ---
 
 **Data Understanding**
@@ -70,6 +70,7 @@ This dataset is a relational database where each table ha been stored as a CSV.
 
 The selected datasets collectively provide a holistic view of patient information, covering demographics, clinical diagnoses, lab results, and treatment services.
 
+---
 ***Tables Utilized***
 
 For the Comprehensive Patient Outcome and Resource Prediction (CPORP) Model, we have selected specific datasets from the MIMIC-IV database. These datasets provide a rich set of features relevant to predicting patient outcomes and optimizing healthcare resource allocation. Below is a description of each dataset and its relevance to the project:
