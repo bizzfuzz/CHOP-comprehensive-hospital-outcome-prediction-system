@@ -3,7 +3,7 @@
 
 **PITCH**
 
-This project aims to predict facest of a patient's admission such as length of stay and cost. It is our vision that armed with this information, a hospital can better plan and allocate its resources.
+This project aims to predict facets of a patient's admission such as length of stay and cost. It is our vision that armed with this information, a hospital can better plan and allocate its resources.
 
 ---
 
