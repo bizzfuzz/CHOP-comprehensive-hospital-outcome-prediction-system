@@ -1,4 +1,11 @@
+
 # Comprehensive Hospital Outcome Prediction System (CHOP)
+
+**PITCH**
+
+This project aims to predict facets of a patient's admission such as length of stay and cost. It is our vision that armed with this information, a hospital can better plan and allocate its resources. When a patient is admitted, the system will be able to predict the stay length and green or red light the admission based on resources needed.
+
+---
 
 **Business Understanding**
 
