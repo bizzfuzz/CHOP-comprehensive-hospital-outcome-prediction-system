@@ -3,6 +3,9 @@ class df_helper:
         df[column] = round(df[column], decimals)
         return df
     
+    def column_subset(self, df, columns):
+        return df[columns]
+    
     def convert_inches_to_meters(self, df, column, decimals):
         df[column] = df[column].astype(float)/39.3700787
         return self.column_decimal_rounding(df, column, decimals)
