@@ -211,3 +211,6 @@ data/los_ytrain.pkl
 data/los_ytest.pkl
 data/model_df.pkl
 
+data/los_df.csv
+data/los_df.pkl
+data/readmissions.pkl
