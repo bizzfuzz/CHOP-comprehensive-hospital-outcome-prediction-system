@@ -203,4 +203,11 @@ pyrightconfig.json
 
 *.ipynb_checkpoints
 rough.ipynb
+rough2.ipynb
 data/cleaned_data.csv
+data/los_xtrain_transformed.pkl
+data/los_xtest_transformed.pkl
+data/los_ytrain.pkl
+data/los_ytest.pkl
+data/model_df.pkl
+
