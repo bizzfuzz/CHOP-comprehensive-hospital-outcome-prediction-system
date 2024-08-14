@@ -1,4 +1,7 @@
 class df_helper:
+    def categorical_columns(self, df):
+        """Returns a list of categorical columns in the dataframe."""
+        return df.select_dtypes(include=['object', 'category']).columns
     def column_decimal_rounding(self, df, column, decimals):
         df[column] = round(df[column], decimals)
         return df
@@ -17,6 +20,8 @@ class df_helper:
     def drop_columns(self, df, columns):
         df.drop(columns=columns, axis=1, inplace=True)
         return df
+    def drop_columns_copy(self, df, columns):
+        return df.drop(columns=columns, axis=1)
     def rename_column(self, df, old_col, new_col):
         df.rename(columns={old_col: new_col}, inplace=True)
         return df
