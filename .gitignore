@@ -214,3 +214,4 @@ data/model_df.pkl
 data/los_df.csv
 data/los_df.pkl
 data/readmissions.pkl
+output.txt
