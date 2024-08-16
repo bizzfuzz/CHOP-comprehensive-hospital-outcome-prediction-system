@@ -43,15 +43,33 @@
 
             <div class="w3-panel">
                 <div class="w3-row-padding" style="margin:0 -16px">
-                    <div class="">
-                        <h5>Insights</h5>
-                        <table>
-                            {% for patient in patients %}
-                                <tr>
-                                    <td>{{ patient.name }}</td><br>
-                                </tr>
-                            {% endfor %}
-                        </table>
+                    <div class="w3-container">
+                        <hr>
+                        {% for patient in patients %}
+                            <div class='w3-padding w3-white w3-card patient-record w3-animate-right'>
+                                <div class='w3-margin-right w3-padding w3-large bold' style='min-width: 250px; width: 250px;'>
+                                    {{patient.name}}
+                                </div>
+                                <div class='w3-margin-right w3-padding'>
+                                    {{patient.gender}}
+                                </div>
+                                <div class='w3-margin-right w3-padding'>
+                                    {{patient.age}}
+                                </div>
+                                <div class='w3-margin-right w3-padding' style='min-width: 100px;'>
+                                    {{patient.insurance}}
+                                </div>
+                                <div class='w3-margin-right w3-padding'>
+                                    {{patient.maritalStatus}}
+                                </div>
+                            </div>
+                            <form action="">
+                                <input type="hidden" name='patient_id' value='{{patient.patient_id}}'>
+                                <button type='submit' class='w3-button w3-green w3-padding w3-animate-right w3-large w3-margin-top w3-hover-opacity w3-margin-bottom'>
+                                    Insight
+                                </button>
+                            </form>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

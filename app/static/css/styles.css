@@ -32,3 +32,11 @@ img.logo-l
 {
     font-weight: bold;
 }
+
+.patient-record
+{
+  display: flex;
+  vertical-align: middle;
+  min-height: 100px;
+  line-height: 100px;
+}
