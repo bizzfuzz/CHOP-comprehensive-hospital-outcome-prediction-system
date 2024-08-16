@@ -43,11 +43,16 @@
 
             <div class="w3-panel">
                 <div class="w3-row-padding" style="margin:0 -16px">
-                    <div class="w3-container">
-                        <hr>
+                    <div class="w3-container w3-half w3-animate-left">
                         {% for patient in patients %}
+                        <form action="">
+                            <input type="hidden" name='patient_id' value='{{patient.patient_id}}'>
+                            <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large w3-margin-top w3-hover-opacity" style='min-width: 170px;'>
+                                Insights
+                            </a>
+                        </form>
                             <div class='w3-white w3-card patient-record w3-animate-right'>
-                                <div class=''>
+                                <div >
                                     <img src="images/robot.webp" alt="{{patient.name}}" class='record-picture'>
                                 </div>
                                 <div class='w3-margin-right w3-padding w3-large bold' style='min-width: 250px; width: 250px;'>
@@ -62,17 +67,23 @@
                                 <div class='w3-margin-right w3-padding' style='min-width: 100px;'>
                                     {{patient.insurance}}
                                 </div>
-                                <div class='w3-margin-right w3-padding'>
-                                    {{patient.maritalStatus}}
+                            </div>
+                            
+                        {% endfor %}
+                    </div>
+                    <div class='w3-half' style='position: fixed; right:0px; width: 42%; top:25%; display: none;' id='insight-div'>
+                        <div class="w3-container w3-margin-bottom">
+                            <div class='w3-white w3-card'>
+                                <div class='w3-container ' style='padding-left: 0px;'>
+                                    <img src="images/robot.webp" alt="avatar" class='avatar'>
                                 </div>
                             </div>
-                            <form action="">
-                                <input type="hidden" name='patient_id' value='{{patient.patient_id}}'>
-                                <button type='submit' class='w3-button w3-green w3-padding w3-animate-right w3-large w3-margin-top w3-hover-opacity w3-margin-bottom'>
-                                    Insight
-                                </button>
-                            </form>
-                        {% endfor %}
+                        </div>
+                        <div class="w3-container w3-margin-bottom">
+                            <div class='w3-white w3-card w3-padding' style='min-height: 100px;'>
+                                t
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,6 +99,28 @@
         </div>
 
         <script>
+            var links = document.querySelectorAll('.person-link');
+
+            // Add click event listener to each link
+            links.forEach(function(link) 
+            {
+                link.addEventListener('click', function(event) 
+                {
+                    console.log("in")
+                    event.preventDefault(); // Prevent default link behavior
+                    var div = document.getElementById('insight-div');
+                    display = div.style.display
+                    if (display === "none") 
+                    {
+                        div.style.display = "block"
+                    } 
+                    else
+                    {
+                        div.style.display = "none"
+                    }
+                });
+            });
+
             // Get the Sidebar
             var mySidebar = document.getElementById("mySidebar");
 
@@ -95,20 +128,21 @@
             var overlayBg = document.getElementById("myOverlay");
 
             // Toggle between showing and hiding the sidebar, and add overlay effect
-            function w3_open() {
-            if (mySidebar.style.display === 'block') {
-                mySidebar.style.display = 'none';
-                overlayBg.style.display = "none";
-            } else {
-                mySidebar.style.display = 'block';
-                overlayBg.style.display = "block";
-            }
-            }
+            function w3_open() 
+            {
+                if (mySidebar.style.display === 'block') {
+                    mySidebar.style.display = 'none';
+                    overlayBg.style.display = "none";
+                } else {
+                    mySidebar.style.display = 'block';
+                    overlayBg.style.display = "block";
+                }
+                }
 
-            // Close the sidebar with the close button
-            function w3_close() {
-            mySidebar.style.display = "none";
-            overlayBg.style.display = "none";
+                // Close the sidebar with the close button
+                function w3_close() {
+                mySidebar.style.display = "none";
+                overlayBg.style.display = "none";
             }
         </script>
 

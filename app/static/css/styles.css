@@ -47,3 +47,9 @@ img.record-picture
   width: auto;
 
 }
+
+img.avatar
+{
+  width: 300px;
+  height: auto;
+}
