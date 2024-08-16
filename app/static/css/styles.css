@@ -22,6 +22,11 @@ img.logo
     height: 30px;
     width: auto;
 }
+img.logo-l
+{
+    height: 80px;
+    width: auto;
+}
 
 .bold
 {
