@@ -37,6 +37,13 @@ img.logo-l
 {
   display: flex;
   vertical-align: middle;
-  min-height: 100px;
-  line-height: 100px;
+  min-height: 150px;
+  line-height: 150px;
+}
+
+img.record-picture
+{
+  height: 170px !important;
+  width: auto;
+
 }

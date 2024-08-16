@@ -25,6 +25,9 @@ with open('./data/readmission_preprocessor.pkl', 'rb') as file:
     readmission_preprocessor = pickle.load(file)
 
 patients = pd.read_csv("data/patients.csv")
+beds = pd.read_csv("data/beds.csv")
+staff = pd.read_csv("data/staff.csv")
+admissions = pd.read_csv("data/admissions.csv")
 
 @app.get("/")
 async def read_root(request: Request):
@@ -32,7 +35,19 @@ async def read_root(request: Request):
 
 @app.get("/dashboard")
 async def dashboard(request: Request):
-    return templates.TemplateResponse("dashboard.html", {"request": request})
+    free_beds = beds[beds.adm_id.isna()].shape[0]
+    doctors = staff[(staff.role == "Physician") | (staff.role == "Nurse")].shape[0]
+    n_patients = admissions[admissions.adm_id.isin(beds.adm_id)].shape[0]
+
+    return templates.TemplateResponse("dashboard.html", context={
+        "request": request,
+        "beds": beds.to_dict(orient="records"),
+        "staff": staff.to_dict(orient="records"),
+        "patients": patients.to_dict(orient="records"),
+        "free_beds": free_beds,
+        "doctors": doctors,
+        "n_patients": n_patients
+    })
 
 @app.get("/patients")
 async def view_patients(request: Request):

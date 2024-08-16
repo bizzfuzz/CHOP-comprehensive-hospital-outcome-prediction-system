@@ -23,8 +23,8 @@
             </div>
             <div class="w3-bar-block">
                 <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-                <a href="/dashboard" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Patients</a>
+                <a href="/dashboard" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Overview</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding w3-green"><i class="fa fa-eye fa-fw"></i>  Patients</a>
                 <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Staff</a>
                 <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Inventory</a>
             </div>
@@ -46,7 +46,10 @@
                     <div class="w3-container">
                         <hr>
                         {% for patient in patients %}
-                            <div class='w3-padding w3-white w3-card patient-record w3-animate-right'>
+                            <div class='w3-white w3-card patient-record w3-animate-right'>
+                                <div class=''>
+                                    <img src="images/robot.webp" alt="{{patient.name}}" class='record-picture'>
+                                </div>
                                 <div class='w3-margin-right w3-padding w3-large bold' style='min-width: 250px; width: 250px;'>
                                     {{patient.name}}
                                 </div>

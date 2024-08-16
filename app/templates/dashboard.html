@@ -23,7 +23,7 @@
             </div>
             <div class="w3-bar-block">
                 <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-                <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding w3-green"><i class="fa fa-users fa-fw"></i>  Overview</a>
                 <a href="/patients" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Patients</a>
                 <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Staff</a>
                 <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Inventory</a>
@@ -46,7 +46,7 @@
                     <div class="w3-container w3-blue w3-padding-16">
                         <div class="w3-left"><i class="fa fa-user-circle w3-xxlarge"></i></div>
                         <div class="w3-right">
-                        <h3>52</h3>
+                        <h3>{{n_patients}}</h3>
                         </div>
                         <div class="w3-clear"></div>
                         <h4>Patients</h4>
@@ -56,7 +56,7 @@
                     <div class="w3-container w3-teal w3-padding-16">
                         <div class="w3-left"><i class="fa fa-bed w3-xxlarge"></i></div>
                         <div class="w3-right">
-                        <h3>99</h3>
+                        <h3>{{free_beds}}/{{beds | length}}</h3>
                         </div>
                         <div class="w3-clear"></div>
                         <h4>Beds</h4>
@@ -66,7 +66,7 @@
                     <div class="w3-container w3-green w3-padding-16">
                         <div class="w3-left"><i class="fa fa-user-md w3-xxlarge"></i></div>
                         <div class="w3-right">
-                        <h3>23</h3>
+                        <h3>{{doctors}}</h3>
                         </div>
                         <div class="w3-clear"></div>
                         <h4>Doctors</h4>
