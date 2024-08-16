@@ -1,0 +1,11 @@
+patient_id,name,age,gender,insurance,language,maritalStatus,race
+0,Amber Nelson,19,F,Medicare,ENGLISH,MARRIED,WHITE - OTHER EUROPEAN
+1,Laura Jones,5,F,Other,?,SINGLE,PATIENT DECLINED TO ANSWER
+2,Ronald Castro,66,M,Medicaid,?,SINGLE,BLACK/CAPE VERDEAN
+3,Steven Watts,84,M,Other,ENGLISH,WIDOWED,HISPANIC/LATINO - PUERTO RICAN
+4,Mr. Joseph Taylor,76,M,Medicare,ENGLISH,SINGLE,UNABLE TO OBTAIN
+5,Scott Davis,21,M,Medicaid,ENGLISH,SINGLE,BLACK/AFRICAN AMERICAN
+6,Matthew Pugh,5,M,Medicare,ENGLISH,SINGLE,HISPANIC/LATINO - CUBAN
+7,James Hicks,28,M,Other,?,SINGLE,HISPANIC OR LATINO
+8,Todd Gonzalez,53,M,Medicare,?,SINGLE,WHITE - BRAZILIAN
+9,Catherine Jones,55,F,Medicare,ENGLISH,WIDOWED,WHITE
