@@ -35,7 +35,7 @@ Hospitals struggle to accurately forecast patient recovery times, potential comp
 
 **Proposed Solution**
 
-Our solution is to develop a model that given patient information, can predict aspects of their stay including duration and cost. By having a better picture of patient needs, the hospital can more efficiently plan for allocation of resources such as beds and staff.
+Our solution is to develop a model that given patient information, can predict aspects of their stay including duration and risk of death. By having a better picture of patient needs, the hospital can more efficiently plan for allocation of resources such as beds and staff.
 
 The system will be able to monitor inpatient numbers to flag if available resources will meet demand in the near future. As an example, with projected number of patients in the coming days, if the system finds that staff on duty on a specific date falls short of demand, it will make this known to administrators.
 
