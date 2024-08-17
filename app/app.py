@@ -42,6 +42,8 @@ async def dashboard(request: Request):
     doctors = staff[(staff.role == "Physician") | (staff.role == "Nurse")].shape[0]
     n_patients = admissions[admissions.adm_id.isin(beds.adm_id)].shape[0]
     get_all_patient_predictions()
+    patient_count_predictions = predict_patient_counts(n_patients, 2)
+    print(patient_count_predictions)
 
     return templates.TemplateResponse("dashboard.html", context={
         "request": request,
@@ -55,7 +57,26 @@ async def dashboard(request: Request):
         "readmission_risks": patients[patients.readmission == True].shape[0],
         "mean_los": patients.los.mean(),
         "max_los": patients.los.max(),
+        "patients_tomorrow": patient_count_predictions[0],
+        "patients_2days": patient_count_predictions[1],
+        "patients_tomorrow_percentage": patient_count_predictions[0] / n_patients * 100,
+        "patients_2days_percentage": patient_count_predictions[1] / n_patients * 100,
     })
+
+def predict_patient_counts(current, days):
+    patient_count = current
+    #next day
+    stays = patients.los.copy()
+    counts = []
+
+    for _ in range(days):
+        stays -= 1
+        #count instances of 0 in stays
+        discharges =  stays[stays == 0].shape[0]
+        next_day_patients = patient_count - discharges
+        counts.append(next_day_patients)
+        patient_count = next_day_patients
+    return counts
 
 @app.get("/patients")
 async def view_patients(request: Request):

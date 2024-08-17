@@ -80,22 +80,22 @@
                     <h5>Insights</h5>
                     <table class="w3-table w3-striped w3-white w3-card w3-large">
                         <tr>
-                            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+                            <td><i class="fa fa-exclamation-triangle w3-text-red w3-large"></i></td>
                             <td>Death Risks</td>
                             <td>{{death_risks}}/{{n_patients}} patients</td>
                         </tr>
                         <tr>
-                            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+                            <td><i class="fa fa-undo w3-text-red w3-large"></i></td>
                             <td>Readmission Predicted.</td>
                             <td>{{readmission_risks}}/{{n_patients}} patients</td>
                         </tr>
                         <tr>
-                            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+                            <td><i class="fa fa-bed w3-text-grey w3-large"></i></td>
                             <td>Average Predicted Length of Stay</td>
                             <td>{{mean_los}} days</td>
                         </tr>
                         <tr>
-                            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+                            <td><i class="fa fa-bed w3-text-grey w3-large"></i></td>
                             <td>Longest Predicted Length of Stay</td>
                             <td>{{max_los}} days</td>
                         </tr>
@@ -105,20 +105,20 @@
             </div>
             <hr>
             <div class="w3-container">
-                <h5>General Stats</h5>
-                <p>New Visitors</p>
+                <h5>Patients Predictions</h5>
+                <p>Current Patients</p>
                 <div class="w3-grey">
-                <div class="w3-container w3-center w3-padding w3-green w3-animate-left" style="width:25%">+25%</div>
+                <div class="w3-container w3-center w3-padding w3-green w3-animate-left" style="width:100%">{{n_patients}} patients</div>
                 </div>
 
-                <p>New Users</p>
+                <p>Tomorrow Predicted</p>
                 <div class="w3-grey">
-                <div class="w3-container w3-center w3-padding w3-teal w3-animate-left" style="width:50%">50%</div>
+                <div class="w3-container w3-center w3-padding w3-teal w3-animate-left" style="width:{{patients_tomorrow_percentage}}%">{{patients_tomorrow}} patients</div>
                 </div>
 
-                <p>Bounce Rate</p>
+                <p>2 Days Predicted</p>
                 <div class="w3-grey">
-                <div class="w3-container w3-center w3-padding w3-red w3-animate-left" style="width:75%">75%</div>
+                <div class="w3-container w3-center w3-padding w3-blue w3-animate-left" style="width:{{patients_2days_percentage}}%">{{patients_2days}} patients</div>
                 </div>
             </div>
             <hr>
