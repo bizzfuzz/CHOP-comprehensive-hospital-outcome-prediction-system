@@ -1,11 +1,11 @@
 patient_id,name,age,gender,insurance,language,maritalStatus,race
-0,Allen Parks,47,M,Medicare,ENGLISH,SINGLE,BLACK/CAPE VERDEAN
-1,Andrea Hendricks,17,F,Medicaid,?,WIDOWED,HISPANIC/LATINO - PUERTO RICAN
-2,Austin Nelson,53,M,Medicaid,ENGLISH,SINGLE,UNKNOWN
-3,Jodi Lucas,57,F,Medicaid,ENGLISH,WIDOWED,PATIENT DECLINED TO ANSWER
-4,Roger White,6,M,Medicaid,?,MARRIED,WHITE - BRAZILIAN
-5,Evan Hartman,62,M,Other,ENGLISH,MARRIED,OTHER
-6,Susan Jones,9,F,Medicaid,?,DIVORCED,OTHER
-7,Kevin Moody,20,M,Medicare,ENGLISH,MARRIED,OTHER
-8,James Williams,7,M,Medicaid,?,MARRIED,UNABLE TO OBTAIN
-9,Mary Robinson,24,F,Medicaid,?,DIVORCED,PATIENT DECLINED TO ANSWER
+0,Michael Clay,3,M,Medicare,ENGLISH,SINGLE,UNKNOWN
+1,Joshua Riley,30,M,Other,?,DIVORCED,WHITE
+2,Zachary Kim,78,M,Medicaid,ENGLISH,MARRIED,WHITE - BRAZILIAN
+3,Steven Vasquez,44,M,Other,?,SINGLE,HISPANIC/LATINO - PUERTO RICAN
+4,Allen David,12,M,Medicare,?,DIVORCED,PORTUGUESE
+5,Heather Hardy,32,F,Other,ENGLISH,DIVORCED,WHITE - BRAZILIAN
+6,Seth Thomas,35,M,Other,?,MARRIED,BLACK/CAPE VERDEAN
+7,Jeremy Smith,1,M,Other,?,SINGLE,UNKNOWN
+8,Mr. Luke Murray,81,M,Medicare,ENGLISH,MARRIED,OTHER
+9,Kaitlin Huffman,76,F,Other,ENGLISH,WIDOWED,HISPANIC OR LATINO

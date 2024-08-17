@@ -96,16 +96,23 @@ def get_all_patient_predictions():
         "death": [],
         "readmission": []
     }
+    drugs = []
+    diag = []
     for i in range(len(patients)):
         patient_id = patients.iloc[i]['patient_id']
         df = los_df(patient_id)
+        drugs.append(df.iloc[0].drug)
+        diag.append(df.iloc[0].diagnosis)
         #print(df.columns)
         predictions["los"].append(predict_los(df).astype(int))
         predictions["death"].append(predict_death(patient_id).astype(bool))
         predictions["readmission"].append(predict_readmission(patient_id))
     patients['los'] = predictions["los"]
     patients['death'] = predictions['death']
-    print(predictions)
+    patients['readmission'] = predictions['readmission']
+    patients["drug"] = drugs
+    patients["diagnosis"] = diag
+    print(patients.iloc[0])
 
 def predict_los(patient_data):
     patient_data_transformed = los_preprocessor.transform(patient_data)

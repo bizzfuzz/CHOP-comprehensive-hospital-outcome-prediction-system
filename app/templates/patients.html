@@ -45,10 +45,16 @@
                 <div class="w3-row-padding" style="margin:0 -16px">
                     <div class="w3-container w3-half w3-animate-left">
                         {% for patient in patients %}
-                        <form action="">
-                            <input type="hidden" name='patient_id' value='{{patient.patient_id}}'>
+                        <form action="" id='insight-form-{{patient.patient_id}}'>
+                            <input type="hidden" name='name' value='{{patient.name}}'>
+                            <input type="hidden" name='diagnosis' value='{{patient.diagnosis}}'>
+                            <input type="hidden" name='prescription' value='{{patient.drug}}'>
+                            <input type="hidden" name='readmission' value='{{patient.readmission}}'>
+                            <input type="hidden" name='death' value='{{patient.death}}'>
+                            <input type="hidden" name='los' value='{{patient.los}}'>
+
                             <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large 
-                            w3-margin-top w3-hover-opacity" style='z-index: 1; min-width: 170px;'>
+                            w3-margin-top w3-hover-opacity" style='z-index: 1; min-width: 170px;' onclick="show_insight('{{patient.patient_id}}')">
                                 Insights
                             </a>
                         </form>
@@ -74,11 +80,11 @@
                     </div>
 
                     <!-- RIGHT HALF-->
-                    <div class='w3-half' style='position: fixed; right:0px; width: 42%; top:25%; display: none;' id='insight-div'>
+                    <div class='w3-half' style='position: fixed; right:0px; width: 42%; top:10%; display: none;' id='insight-div'>
                         <div class="w3-container w3-margin-bottom">
                             <div class='w3-white w3-card'>
                                 <div class='w3-container w3-padding ' style='padding-left: 0px;'>
-                                    <h4 class='w3-paddingt bold'>Patient Name</h4>
+                                    <h4 id='insight-name' class='w3-paddingt bold'>Patient Name</h4>
                                     <hr>
                                 </div>
 
@@ -96,8 +102,18 @@
                         </div>
                         <div class="w3-container w3-margin-bottom">
                             <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
-                                <h5 class='w3-paddingt bold'>Insight</h5>
-                                <p id='feeback'>test</p>
+                                <h5 class='w3-paddingt bold'>Predicted Length of stay</h5>
+                                <p id='insight-los'>test</p>
+                                <hr>
+                            </div>
+                            <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
+                                <h5 class='w3-paddingt bold'>Readmission Likely</h5>
+                                <p id='insight-readmission'>test</p>
+                                <hr>
+                            </div>
+                            <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
+                                <h5 class='w3-paddingt bold'>Death Risk</h5>
+                                <p id='insight-death'>test</p>
                             </div>
                         </div>
                     </div>
@@ -118,29 +134,34 @@
         </div>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function() 
+            function show_insight(id)
             {
-                var links = document.querySelectorAll('.person-link');
+                console.log(id)
+                var div = document.getElementById('insight-div');
+                var insight_form = document.getElementById("insight-form-"+id)
+                var form_data = new FormData(insight_form)
 
-                // Add click event listener to each link
-                links.forEach(function(link) 
-                {
-                    link.addEventListener('click', function(event) 
-                    {
-                        event.preventDefault(); // Prevent default link behavior
-                        var div = document.getElementById('insight-div');
-                        display = div.style.display
-                        if (display === "none") 
-                        {
-                            div.style.display = "block"
-                        } 
-                        else
-                        {
-                            div.style.display = "none"
-                        }
-                    });
-                });
-            })
+                name_text = document.getElementById("insight-name")
+                diag_text = document.getElementById("insight-diagnosis")
+                pres_text = document.getElementById("insight-prescription")
+                los_text = document.getElementById("insight-los")
+                readm_text = document.getElementById("insight-readmission")
+                death_text = document.getElementById("insight-death")
+
+                name_text.innerHTML = form_data.get("name")
+                diag_text.innerHTML = form_data.get("diagnosis")
+                pres_text.innerHTML = form_data.get("prescription")
+                los_text.innerHTML = form_data.get("los")
+                readm_text.innerHTML = form_data.get("readmission")
+                death_text.innerHTML = form_data.get("death")
+
+                if(div.style.display === "none")
+                    div.style.display = "block"
+            }
+            function hide_insight()
+            {
+                document.getElementById('insight-div').style.display = "none";
+            }
             // Get the Sidebar
             var mySidebar = document.getElementById("mySidebar");
 
