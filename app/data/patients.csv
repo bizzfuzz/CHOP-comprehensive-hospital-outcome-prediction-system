@@ -1,0 +1,11 @@
+patient_id,name,age,gender,insurance,language,maritalStatus,race
+0,Michael Clay,3,M,Medicare,ENGLISH,SINGLE,UNKNOWN
+1,Joshua Riley,30,M,Other,?,DIVORCED,WHITE
+2,Zachary Kim,78,M,Medicaid,ENGLISH,MARRIED,WHITE - BRAZILIAN
+3,Steven Vasquez,44,M,Other,?,SINGLE,HISPANIC/LATINO - PUERTO RICAN
+4,Allen David,12,M,Medicare,?,DIVORCED,PORTUGUESE
+5,Heather Hardy,32,F,Other,ENGLISH,DIVORCED,WHITE - BRAZILIAN
+6,Seth Thomas,35,M,Other,?,MARRIED,BLACK/CAPE VERDEAN
+7,Jeremy Smith,1,M,Other,?,SINGLE,UNKNOWN
+8,Mr. Luke Murray,81,M,Medicare,ENGLISH,MARRIED,OTHER
+9,Kaitlin Huffman,76,F,Other,ENGLISH,WIDOWED,HISPANIC OR LATINO
