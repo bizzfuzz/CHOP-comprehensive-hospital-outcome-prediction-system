@@ -1,25 +1,17 @@
 
 # Comprehensive Hospital Outcome Prediction System (CHOP)
-
-**Table of Contents**
-1. Pitch
-2. Business understanding
-3. Data understanding
-4. Requirements
-5. Usage.
-6. Algorithm Overview
-7. Results
-8. Conclusion
-References
+![](images/land.png)
+![](images/about.png)
+![](images/accuracy.png)
+![](images/dashboard.png)
+![](images/insights.png)
 
 
 **PITCH**
 
-This project aims to predict facets of a patient's admission such as length of stay and cost. It is our vision that armed with this information, a hospital can better plan and allocate its resources. When a patient is admitted, the system will be able to predict the stay length and green or red light the admission based on resources needed.
+In the medical sphere, predicting and allocating resources needed is a difficult task that can end up in a lot of wasted resources. It is our vision that armed with the right information, a hospital can better plan and allocate its resources. When a patient is admitted, extra insight into the patient's future stay is already available and the hospital can plan accordingly.
 
----
-
-**Business Understanding**
+## Business Understanding
 
 **Overview**
 
@@ -68,9 +60,8 @@ The system will be able to monitor inpatient numbers to flag if available resour
 
 - **Privacy and Security Concerns:** Handling sensitive patient data requires strict adherence to privacy regulations.
 
----
 
-**Data Understanding**
+## Data Understanding
 
 **Data Sources**
 
@@ -89,7 +80,7 @@ Exploratory Data Analysis (EDA): Visualizations were created to understand the d
 Model Development: Various machine learning models were developed, including Logistic Regression, Random Forest, and XGBoost.
 Model Evaluation: The models were evaluated using accuracy, precision, recall, and F1 score to select the best-performing model.
 
-
+## EDA 
 **Data Visualization**
 
 **Univariate Analysis**
@@ -106,132 +97,48 @@ Model Evaluation: The models were evaluated using accuracy, precision, recall, a
 ![](Images/admi_month.PNG)
 ![](Images/lengthofstay.PNG)
 ![](Images/readmi_month.PNG)
-![](Images/drugs.png)
 
+## Models
 
-
-
-
-Modeling and Evaluation
-Several models were developed and evaluated to determine the best approach for predicting patient outcomes. The following models were compared:
-
-Length of stay
-
-![](Images/boxcox_lengthofstay.PNG)
-![](Images/probability_plot.PNG)
-![](Images/lengthofstay_b_outliers.PNG)
-![](Images/lengthofstay_a_outliers.PNG)
-![](Images/probability_plot_2.PNG)
-
-
-array([[ 0.        ,  0.        ,  0.        , ..., -0.39147085,
-         0.34252208,  2.01675533],
-       [ 0.        ,  0.        ,  0.        , ...,  1.17351989,
-         1.07734694, -0.14947275],
-       [ 0.        ,  0.        ,  0.        , ..., -0.39147085,
-         0.34252208,  2.01675533],
-       ...,
-       [ 0.        ,  0.        ,  0.        , ...,  1.17351989,
-         1.07734694, -0.14947275],
-       [ 0.        ,  0.        ,  0.        , ...,  0.43290455,
-        -1.6782463 , -1.27270212],
-       [ 0.        ,  0.        ,  0.        , ...,  1.17351989,
-         1.07734694, -0.14947275]])
-
-Readmissions
-
-**Logistic Regression**
-Accuracy: 0.82035
-              precision    recall  f1-score   support
-
-           0       0.89      0.85      0.87     13716
-           1       0.70      0.76      0.73      6284
-
-    accuracy                           0.82     20000
-   macro avg       0.79      0.80      0.80     20000
-weighted avg       0.83      0.82      0.82     20000
-
-**Confussion Matrix**
-
-Accuracy: 0.84505
-              precision    recall  f1-score   support
-
-           0       0.90      0.87      0.88     13716
-           1       0.73      0.80      0.76      6284
-
-    accuracy                           0.85     20000
-   macro avg       0.82      0.83      0.82     20000
-weighted avg       0.85      0.85      0.85     20000
-
-
-
-**Logistic Regression**
-
-Mean Absolute Error (MAE): 0.53
-Mean Squared Error (MSE): 0.45
-Root Mean Squared Error (RMSE): 0.67
-R-squared (R²): 0.37
-Median Absolute Error: 0.43
-Explained Variance Score: 0.37
-
-Accuracy: 0.82035
-              precision    recall  f1-score   support
-
-           0       0.89      0.85      0.87     13716
-           1       0.70      0.76      0.73      6284
-
-    accuracy                           0.82     20000
-   macro avg       0.79      0.80      0.80     20000
-weighted avg       0.83      0.82      0.82     20000
-
-Death
-
-sns.heatmap(confusion_matrix(y_test, y_pred), annot=True, fmt='d', cbar=False, xticklabels=le.classes_, yticklabels=le.classes_)
-plt.xlabel("Predicted Values")
-plt.ylabel("Actual values")
-plt.title("Random Forest Confusion Matrix")
-plt.show()
-
-**Random Forest**
-
+**Length of stay**:
+A random Forest Regression Model perfeomed the best in modeling by explaining 78% of the variance in the target variable.
+~~~
 Mean Absolute Error (MAE): 0.23
 Mean Squared Error (MSE): 0.23
 Root Mean Squared Error (RMSE): 0.48
 R-squared (R²): 0.78
 Median Absolute Error: 0.00
 Explained Variance Score: 0.78
+~~~
 
-Accuracy: 0.84505
+**Death**:
+Predictiong the death wound up  straight forward as the first model attempted performed very well. A logistic Regression Model with 98% accuracy was created.
+~~~
+Accuracy: 0.98535
               precision    recall  f1-score   support
 
-           0       0.90      0.87      0.88     13716
-           1       0.73      0.80      0.76      6284
+           0       0.99      0.99      0.99     18599
+           1       0.89      0.90      0.90      1401
 
-    accuracy                           0.85     20000
-   macro avg       0.82      0.83      0.82     20000
-weighted avg       0.85      0.85      0.85     20000
+    accuracy                           0.99     20000
+   macro avg       0.94      0.94      0.94     20000
+weighted avg       0.99      0.99      0.99     20000
 
+~~~
 
+**Readmissions**:
+For readmission a Random Forest Classifier with 84% accuracy was trained.
+![](Images/Redamission_RF_confusionmatrix.PNG)
 
-**XGBoost**
+### Results
+The CHOP Model was able to predict patient outcomes with a high degree of accuracy. The model's predictions were validated against a test dataset, and the results were consistent with the expected outcomes.
 
-Model Accuracy
-The final model was evaluated based on the following metrics:
+## Conclusion
+The CHOP Model demonstrates the potential for machine learning in healthcare to improve patient outcomes and optimize resource allocation. By leveraging historical data, the model provides actionable insights that can assist healthcare providers in making informed decisions.
 
-Accuracy: 85%
-Precision: 82%
-Recall: 80%
-F1 Score: 81%
+In using the demo dashboard it's easy to see how useful it would be to hospital administrators and the sky is the limit as to what metrics the system can monitor and provide insight on.
 
-Figure 3: Comparison of model accuracy across different models.
-
-Results
-The CPORP Model was able to accurately predict patient outcomes with a high degree of accuracy. The most significant features contributing to predictions were patient age, previous medical history, and the type of treatment received. The model's predictions were validated against a test dataset, and the results were consistent with the expected outcomes.
-
-Conclusion
-The CPORP Model demonstrates the potential for machine learning in healthcare to improve patient outcomes and optimize resource allocation. By leveraging historical data, the model provides actionable insights that can assist healthcare providers in making informed decisions.
-
-Future Work
+## Future Work
 Model Refinement: Further tuning and testing with more diverse datasets to improve accuracy.
 Integration: Implementing the model into hospital management systems for real-time predictions.
 Expanding Features: Including additional features such as patient lifestyle factors to improve prediction accuracy.
