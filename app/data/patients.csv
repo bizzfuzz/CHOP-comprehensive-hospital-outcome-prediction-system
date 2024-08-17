@@ -1,11 +1,11 @@
 patient_id,name,age,gender,insurance,language,maritalStatus,race
-0,Rachel Holmes,72,F,Other,?,SINGLE,UNKNOWN
-1,Todd Osborne,84,M,Medicaid,ENGLISH,WIDOWED,UNABLE TO OBTAIN
-2,Christopher Wong,74,M,Medicaid,?,MARRIED,OTHER
-3,Virginia Price,6,F,Medicaid,ENGLISH,MARRIED,HISPANIC/LATINO - PUERTO RICAN
-4,Jennifer Sims,51,F,Medicare,ENGLISH,MARRIED,OTHER
-5,Rodney Carroll,69,M,Medicaid,?,DIVORCED,WHITE - OTHER EUROPEAN
-6,Cody Brennan,27,M,Other,ENGLISH,WIDOWED,WHITE
-7,Lauren Brown,79,F,Medicare,ENGLISH,WIDOWED,UNKNOWN
-8,Theresa Young,8,F,Other,?,MARRIED,HISPANIC OR LATINO
-9,Gregory Hughes,46,M,Medicaid,ENGLISH,MARRIED,BLACK/CAPE VERDEAN
+0,Allen Parks,47,M,Medicare,ENGLISH,SINGLE,BLACK/CAPE VERDEAN
+1,Andrea Hendricks,17,F,Medicaid,?,WIDOWED,HISPANIC/LATINO - PUERTO RICAN
+2,Austin Nelson,53,M,Medicaid,ENGLISH,SINGLE,UNKNOWN
+3,Jodi Lucas,57,F,Medicaid,ENGLISH,WIDOWED,PATIENT DECLINED TO ANSWER
+4,Roger White,6,M,Medicaid,?,MARRIED,WHITE - BRAZILIAN
+5,Evan Hartman,62,M,Other,ENGLISH,MARRIED,OTHER
+6,Susan Jones,9,F,Medicaid,?,DIVORCED,OTHER
+7,Kevin Moody,20,M,Medicare,ENGLISH,MARRIED,OTHER
+8,James Williams,7,M,Medicaid,?,MARRIED,UNABLE TO OBTAIN
+9,Mary Robinson,24,F,Medicaid,?,DIVORCED,PATIENT DECLINED TO ANSWER

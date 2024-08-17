@@ -47,11 +47,12 @@
                         {% for patient in patients %}
                         <form action="">
                             <input type="hidden" name='patient_id' value='{{patient.patient_id}}'>
-                            <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large w3-margin-top w3-hover-opacity" style='min-width: 170px;'>
+                            <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large 
+                            w3-margin-top w3-hover-opacity" style='z-index: 1; min-width: 170px;'>
                                 Insights
                             </a>
                         </form>
-                            <div class='w3-white w3-card patient-record w3-animate-right'>
+                            <div class='w3-white w3-card patient-record w3-animate-right w3-margin-bottom'>
                                 <div >
                                     <img src="images/robot.webp" alt="{{patient.name}}" class='record-picture'>
                                 </div>
@@ -71,17 +72,32 @@
                             
                         {% endfor %}
                     </div>
+
+                    <!-- RIGHT HALF-->
                     <div class='w3-half' style='position: fixed; right:0px; width: 42%; top:25%; display: none;' id='insight-div'>
                         <div class="w3-container w3-margin-bottom">
                             <div class='w3-white w3-card'>
-                                <div class='w3-container ' style='padding-left: 0px;'>
-                                    <img src="images/robot.webp" alt="avatar" class='avatar'>
+                                <div class='w3-container w3-padding ' style='padding-left: 0px;'>
+                                    <h4 class='w3-paddingt bold'>Patient Name</h4>
+                                    <hr>
+                                </div>
+
+                                <div class='w3-padding'>
+                                    <label class='w3-padding-left bold w3-large'>Diagnosis:</label>
+                                    <p id='insight-diagnosis' class='w3-padding-right'>test</p>
+                                    <hr>
+                                </div>
+                                <div class='w3-padding'>
+                                    <label class='w3-padding-left bold w3-large'>Prescription:</label>
+                                    <p id='insight-prescription' class='w3-padding-right'>test</p>
+                                    <hr>
                                 </div>
                             </div>
                         </div>
                         <div class="w3-container w3-margin-bottom">
-                            <div class='w3-white w3-card w3-padding' style='min-height: 100px;'>
-                                t
+                            <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
+                                <h5 class='w3-paddingt bold'>Insight</h5>
+                                <p id='feeback'>test</p>
                             </div>
                         </div>
                     </div>
@@ -96,31 +112,35 @@
                 </p>
             </footer>
         <!-- End page content -->
+         <form name='insight-form' action="">
+            <input type="hidden" name='patient_id'>
+         </form>
         </div>
 
         <script>
-            var links = document.querySelectorAll('.person-link');
-
-            // Add click event listener to each link
-            links.forEach(function(link) 
+            document.addEventListener("DOMContentLoaded", function() 
             {
-                link.addEventListener('click', function(event) 
-                {
-                    console.log("in")
-                    event.preventDefault(); // Prevent default link behavior
-                    var div = document.getElementById('insight-div');
-                    display = div.style.display
-                    if (display === "none") 
-                    {
-                        div.style.display = "block"
-                    } 
-                    else
-                    {
-                        div.style.display = "none"
-                    }
-                });
-            });
+                var links = document.querySelectorAll('.person-link');
 
+                // Add click event listener to each link
+                links.forEach(function(link) 
+                {
+                    link.addEventListener('click', function(event) 
+                    {
+                        event.preventDefault(); // Prevent default link behavior
+                        var div = document.getElementById('insight-div');
+                        display = div.style.display
+                        if (display === "none") 
+                        {
+                            div.style.display = "block"
+                        } 
+                        else
+                        {
+                            div.style.display = "none"
+                        }
+                    });
+                });
+            })
             // Get the Sidebar
             var mySidebar = document.getElementById("mySidebar");
 

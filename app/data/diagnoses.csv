@@ -1,6 +1,11 @@
 diagnosis_id,adm_id,diagnosis
-0,0,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-1,1,Methicillin resistant pneumonia due to Staphylococcus aureus
-2,2,Solitary pulmonary nodule
-3,3,Esophageal reflux
-4,4,"Asthma, unspecified type, unspecified"
+0,0,Hypoxemia
+1,1,Acute respiratory failure
+2,2,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+3,3,Attention deficit disorder with hyperactivity
+4,4,Hypoxemia
+5,5,"Dysphagia, oropharyngeal phase"
+6,6,Hypoxemia
+7,7,Attention deficit disorder with hyperactivity
+8,8,"Urinary tract infection, site not specified"
+9,9,Methicillin resistant pneumonia due to Staphylococcus aureus

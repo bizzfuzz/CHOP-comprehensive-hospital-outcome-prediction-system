@@ -11,7 +11,7 @@ app.mount("/images", StaticFiles(directory="static/images"), name="images")
 templates = Jinja2Templates(directory="templates")
 
 
-with open('./data/los_dtr.pkl', 'rb') as file:
+with open('./data/los_model.pkl', 'rb') as file:
     los_model = pickle.load(file)
 with open('./data/death_model.pkl', 'rb') as file:
     death_model = pickle.load(file)
@@ -28,6 +28,9 @@ patients = pd.read_csv("data/patients.csv")
 beds = pd.read_csv("data/beds.csv")
 staff = pd.read_csv("data/staff.csv")
 admissions = pd.read_csv("data/admissions.csv")
+prescriptions = pd.read_csv("data/prescriptions.csv")
+diagnoses = pd.read_csv("data/diagnoses.csv")
+omr = pd.read_csv("data/omr.csv")
 
 @app.get("/")
 async def read_root(request: Request):
@@ -52,10 +55,51 @@ async def dashboard(request: Request):
 @app.get("/patients")
 async def view_patients(request: Request):
     patients_temp = patients.to_dict(orient="records")
-    print(patients_temp)
+    get_all_patient_los()
     return templates.TemplateResponse("patients.html", context={
         "request": request, "patients": patients_temp
     })
+
+def los_df(patient_id):
+    patient = patients[patients.patient_id == patient_id].iloc[0]
+    patient_data = {}
+
+    if(patient_id not in admissions.patient_id.values):
+        return pd.DataFrame()
+    
+    adm = admissions[admissions.patient_id == patient_id]
+    #print(adm)
+    
+    adm = adm.iloc[0]['adm_id']
+    patient_prescrition = prescriptions[prescriptions.adm_id == adm].iloc[0]
+    patient_data['drug'] = patient_prescrition['drug']
+    patient_data['age'] = patient['age']
+    patient_data['diagnosis'] = diagnoses[diagnoses.adm_id == adm].iloc[0]["diagnosis"]
+    patient_data['gender'] = patient['gender']
+    patient_data['admission_type'] = admissions[admissions.patient_id == patient_id].iloc[0]['type']
+    patient_data["admission_location"] = admissions[admissions.patient_id == patient_id].iloc[0]["location"]
+    patient_data["insurance"] = patient['insurance']
+    patient_data["marital_status"] = patient['maritalStatus']
+    patient_data["race"] = patient['race']
+    patient_data['weight'] = omr[omr.adm_id == adm].iloc[0]["weight"]
+    patient_data["bp_systolic"] = omr[omr.adm_id == adm].iloc[0]["bp_systolic"]
+    patient_data["bp_diastolic"] = omr[omr.adm_id == adm].iloc[0]["bp_diastolic"]
+
+    return pd.DataFrame([patient_data], columns=patient_data.keys())
+
+def get_all_patient_los():
+    predictions = []
+    for i in range(len(patients)):
+        patient_id = patients.iloc[i]['patient_id']
+        df = los_df(patient_id)
+        #print(df.columns)
+        predictions.append(predict_los(df))
+    #patients['los'] = predictions
+
+def predict_los(patient_data):
+    patient_data_transformed = los_preprocessor.transform(patient_data)
+    return los_model.predict(patient_data_transformed)[0]
+
 
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8000)
