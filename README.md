@@ -11,6 +11,17 @@
 
 In the medical sphere, predicting and allocating resources needed is a difficult task that can end up in a lot of wasted resources. It is our vision that armed with the right information, a hospital can better plan and allocate its resources. When a patient is admitted, extra insight into the patient's future stay is already available and the hospital can plan accordingly.
 
+**Technologies Used**
+- Python
+- Pandas
+- Scikit-learn
+- Numpy
+- Seaborn
+- Matplotlib
+- FastAPI
+- Uvicorn
+- W3 HTML Elements
+
 ## Business Understanding
 
 **Overview**
