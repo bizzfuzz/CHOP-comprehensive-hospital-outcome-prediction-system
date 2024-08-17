@@ -41,6 +41,7 @@ async def dashboard(request: Request):
     free_beds = beds[beds.adm_id.isna()].shape[0]
     doctors = staff[(staff.role == "Physician") | (staff.role == "Nurse")].shape[0]
     n_patients = admissions[admissions.adm_id.isin(beds.adm_id)].shape[0]
+    get_all_patient_predictions()
 
     return templates.TemplateResponse("dashboard.html", context={
         "request": request,
@@ -49,7 +50,11 @@ async def dashboard(request: Request):
         "patients": patients.to_dict(orient="records"),
         "free_beds": free_beds,
         "doctors": doctors,
-        "n_patients": n_patients
+        "n_patients": n_patients,
+        "death_risks": patients[patients.death == True].shape[0],
+        "readmission_risks": patients[patients.readmission == True].shape[0],
+        "mean_los": patients.los.mean(),
+        "max_los": patients.los.max(),
     })
 
 @app.get("/patients")
