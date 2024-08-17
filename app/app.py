@@ -55,11 +55,14 @@ async def dashboard(request: Request):
 @app.get("/patients")
 async def view_patients(request: Request):
     patients_temp = patients.to_dict(orient="records")
-    get_all_patient_los()
+    get_all_patient_predictions()
     return templates.TemplateResponse("patients.html", context={
         "request": request, "patients": patients_temp
     })
 
+###################################
+#Length of stay calculation
+####################################
 def los_df(patient_id):
     patient = patients[patients.patient_id == patient_id].iloc[0]
     patient_data = {}
@@ -87,18 +90,36 @@ def los_df(patient_id):
 
     return pd.DataFrame([patient_data], columns=patient_data.keys())
 
-def get_all_patient_los():
-    predictions = []
+def get_all_patient_predictions():
+    predictions = {
+        "los": [],
+        "death": [],
+        "readmission": []
+    }
     for i in range(len(patients)):
         patient_id = patients.iloc[i]['patient_id']
         df = los_df(patient_id)
         #print(df.columns)
-        predictions.append(predict_los(df))
-    #patients['los'] = predictions
+        predictions["los"].append(predict_los(df).astype(int))
+        predictions["death"].append(predict_death(patient_id).astype(bool))
+        predictions["readmission"].append(predict_readmission(patient_id))
+    patients['los'] = predictions["los"]
+    patients['death'] = predictions['death']
+    print(predictions)
 
 def predict_los(patient_data):
     patient_data_transformed = los_preprocessor.transform(patient_data)
     return los_model.predict(patient_data_transformed)[0]
+
+def predict_death(patient_id):
+    data = los_df(patient_id)
+    data_transformed = death_preprocessor.transform(data)
+    return death_model.predict(data_transformed)[0]
+
+def predict_readmission(patient_id):
+    data = los_df(patient_id)
+    data_transformed = readmission_preprocessor.transform(data)
+    return readmission_model.predict(data_transformed)[0]
 
 
 if __name__ == '__main__':
