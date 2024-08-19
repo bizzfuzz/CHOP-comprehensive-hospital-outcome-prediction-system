@@ -93,7 +93,7 @@ def predict(
 
         results = {}
         df = pd.DataFrame([patient])
-        results["los"] = (predict_los(df).item())
+        results["los"] = (round(predict_los(df).item(), 2))
         results["death"] = (predict_death_by_data(df).astype(bool).item())
         results["readmission"] = (predict_readmission_by_data(df).astype(bool).item())
         print(results)
