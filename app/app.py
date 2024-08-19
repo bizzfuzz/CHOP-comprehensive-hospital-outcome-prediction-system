@@ -93,13 +93,13 @@ def predict(
 
         results = {}
         df = pd.DataFrame([patient])
-        results["los"] = (predict_los(df).astype(int))
-        results["death"] = (predict_death_by_data(df).astype(bool))
-        results["readmission"] = (predict_readmission_by_data(df).astype(bool))
+        results["los"] = (predict_los(df).item())
+        results["death"] = (predict_death_by_data(df).astype(bool).item())
+        results["readmission"] = (predict_readmission_by_data(df).astype(bool).item())
         print(results)
         return results
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Error: " + str(e.__cause__))
+        raise HTTPException(status_code=500, detail="Error: " + str(e))
 
 @app.get("/dashboard")
 async def dashboard(request: Request):

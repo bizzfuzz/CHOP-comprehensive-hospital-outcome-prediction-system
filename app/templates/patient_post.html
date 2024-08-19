@@ -142,7 +142,24 @@
                 method: 'POST',
                 body: formData
             });
-            
+            const data = await response.json();
+            document.getElementById('result').innerHTML = `
+                <h3 class="w3-margin-bottom">Prediction Results:</h3>
+                <table class="w3-padding w3-large">
+                    <tr>
+                        <td style='text-align: left;' class="bold">Length of stay</td>
+                        <td>${data.los}</td>    
+                    </tr>
+                    <tr>
+                        <td style='text-align: left;' class="bold">Readmission Likely</td>
+                        <td>${data.readmission}</td>    
+                    </tr>
+                    <tr>
+                        <td style='text-align: left;' class="bold">Death Risk</td>
+                        <td>${data.death}</td>    
+                    </tr>
+                <table>
+            `;
         }
         </script>
     </body>
