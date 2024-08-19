@@ -53,3 +53,12 @@ img.avatar
   width: 300px;
   height: auto;
 }
+
+.left-align 
+{
+  text-align: left !important;
+}
+.form-table td 
+{
+  padding: 8px;
+}

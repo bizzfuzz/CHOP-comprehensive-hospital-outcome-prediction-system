@@ -32,9 +32,74 @@ prescriptions = pd.read_csv("data/prescriptions.csv")
 diagnoses = pd.read_csv("data/diagnoses.csv")
 omr = pd.read_csv("data/omr.csv")
 
+with open('./data/marital_statuses.pkl', 'rb') as file:
+    marital_statuses = pickle.load(file)
+with open('./data/admission_locations.pkl', 'rb') as file:
+    admission_locations = pickle.load(file)
+with open('./data/admission_types.pkl', 'rb') as file:
+    admission_types = pickle.load(file)
+with open('./data/races.pkl', 'rb') as file:
+    races = pickle.load(file)
+with open('./data/insurance_types.pkl', 'rb') as file:
+    insurance_types = pickle.load(file)
+
 @app.get("/")
 async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/patient_post")
+async def api_demo(request: Request):
+    
+    return templates.TemplateResponse("patient_post.html", context={
+        "request": request,
+        "marital_statuses": marital_statuses,
+        "admission_locations": admission_locations,
+        "admission_types": admission_types,
+        "races": races,
+        "insurance_types": insurance_types,
+        "genders": ["M", "F"],
+    })
+
+@app.post("/predict")
+def predict(
+    age: int = Form(...),
+    prescription: str = Form(...),
+    diagnosis: str = Form(...),
+    gender: str = Form(...),
+    admission_type: str = Form(...),
+    admission_location: str = Form(...),
+    insurance: str = Form(...),
+    marital_status: str = Form(...),
+    race: str = Form(...),
+    weight: float = Form(...),
+    bp_systolic: int = Form(...),
+    bp_diastolic: int = Form(...)
+):
+    try:
+        patient = {
+            "drug": prescription,
+            "age": age,
+            "diagnosis": diagnosis,
+            "gender": gender,
+            "admission_type": admission_type,
+            "admission_location": admission_location,
+            "insurance": insurance,
+            "marital_status": marital_status,
+            "race": race,
+            "weight": weight,
+            "bp_systolic": bp_systolic,
+            "bp_diastolic": bp_diastolic
+        }
+
+        results = {}
+        df = pd.DataFrame([patient])
+        results["los"] = (predict_los(df).astype(int))
+        results["death"] = (predict_death_by_data(df).astype(bool))
+        results["readmission"] = (predict_readmission_by_data(df).astype(bool))
+        print(results)
+        return results
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Error: " + str(e.__cause__))
 
 @app.get("/dashboard")
 async def dashboard(request: Request):
@@ -132,7 +197,7 @@ def get_all_patient_predictions():
         #print(df.columns)
         predictions["los"].append(predict_los(df).astype(int))
         predictions["death"].append(predict_death(patient_id).astype(bool))
-        predictions["readmission"].append(predict_readmission(patient_id))
+        predictions["readmission"].append(predict_readmission(patient_id).astype(bool))
     patients['los'] = predictions["los"]
     patients['death'] = predictions['death']
     patients['readmission'] = predictions['readmission']
@@ -143,6 +208,12 @@ def get_all_patient_predictions():
 def predict_los(patient_data):
     patient_data_transformed = los_preprocessor.transform(patient_data)
     return los_model.predict(patient_data_transformed)[0]
+def predict_death_by_data(data):
+    data_transformed = death_preprocessor.transform(data)
+    return death_model.predict(data_transformed)[0]
+def predict_readmission_by_data(data):
+    data_transformed = readmission_preprocessor.transform(data)
+    return readmission_model.predict(data_transformed)[0]
 
 def predict_death(patient_id):
     data = los_df(patient_id)
