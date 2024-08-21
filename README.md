@@ -22,6 +22,11 @@ In the medical sphere, predicting and allocating resources needed is a difficult
 - Uvicorn
 - W3 HTML Elements
 
+**Repo Layout**<br>
+`/app` contains the webapp<br>
+`/CHOP.ipynb` contains data preparation and EDA<br>
+`/models.ipynb` contains the modeling process
+
 ## Business Understanding
 
 **Overview**
