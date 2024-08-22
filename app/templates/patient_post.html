@@ -105,8 +105,8 @@
                                 <td style='text-align: left;'>Gender:</td>
                                 <td style='text-align: left;'>
                                     <select name="gender" required class='w3-padding' style='width: 100%;'>
-                                        {% for gender in genders %}
-                                            <option value="{{gender}}">{{gender}}</option>
+                                        {% for code, name in genders.items() %}
+                                            <option value="{{ code }}">{{ name }}</option>
                                         {% endfor %}
                                     </select>
                                 </td>

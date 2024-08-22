@@ -57,7 +57,10 @@ async def api_demo(request: Request):
         "admission_types": admission_types,
         "races": races,
         "insurance_types": insurance_types,
-        "genders": ["M", "F"],
+        "genders": {
+            "M": "Male",
+            "F": "Female"
+        },
     })
 
 @app.post("/predict")
